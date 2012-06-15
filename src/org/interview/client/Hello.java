@@ -117,18 +117,43 @@ public class Hello implements EntryPoint {
                 dialogBox.hide();
                 sendButton.setEnabled(true);
                 sendButton.setFocus(true);
+                numberOfCompletedCall;
+
             }
         });
         
-
-        // Create a handler for the sendButton and nameField
+        // Add a handler to clear person information 	
+        clearPersonButton.addClickHandler(new ClickHandler() {  	
+           public void onClick(ClickEvent event) {  	
+              nameField.setText(""); 	
+              personId.setText("");	
+              personName.setText("");	
+            }
+         });
+      // Add a handler to count number of call message successfully sent to the server
+        countCallButton.addClickHandler(new ClickHandler() { 		
+            public void onClick(ClickEvent event) {      
+            System.out.println("Number of successfully message sent to server:" + numberOfCompletedCall); 
+            countCallLabel.setText(Integer.toString(numberOfCompletedCall));
+             }
+           });  
+      
+       // Add a handler to get Person information
+      getPersonButton.addClickHandler(new ClickHandler() {	
+         public void onClick(ClickEvent event) { 
+          System.out.println("Get User Information" +Personinfo.getName()); 	
+     	  } 		
+         });  
+       
+       // Create a handler for the sendButton and nameField
         class MyHandler implements ClickHandler, KeyUpHandler {
             /**
              * Fired when the user clicks on the sendButton.
              */
             public void onClick(ClickEvent event) {
                 sendNameToServer();
-            }
+            }           
+            
 
             /**
              * Fired when the user types in the nameField.
