@@ -27,6 +27,12 @@ import com.google.gwt.user.client.ui.VerticalPanel;
 /**
  * Entry point classes define <code>onModuleLoad()</code>.
  */
+ 
+ .sendButton ,red {
+  display: block;
+  font-size: 16pt;
+  color: red;
+}
 public class Hello implements EntryPoint {
 	/**
 	 * The message displayed to the user when the server cannot be reached or
